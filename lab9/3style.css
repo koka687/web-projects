@@ -1,0 +1,23 @@
+.background-gradient {
+    background: linear-gradient(90deg, #B0C4FF 0%, #A7DDFC 50%, #C4FFD7 100%);
+    min-height: 150vh; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+
+.text-mask {
+    font-size: 150px;
+    font-weight: 900;
+    font-family: 'Arial Black', sans-serif;
+    text-align: center;
+    margin: 50px 0;
+
+    background-image: url('rey-seven-_nm_mZ4Cs2I-unsplash.jpg'); 
+    background-size: cover;
+    background-position: center;
+
+    -webkit-background-clip: text; 
+    background-clip: text;
+
+    color: transparent;
+}

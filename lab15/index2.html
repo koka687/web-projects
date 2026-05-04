@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Bootstrap Слайдер</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <style>
+        .carousel-caption { text-shadow: 0px 0px 8px rgba(0,0,0,1); color: #fff; }
+        h3, p { font-weight: 900; }
+
+        .slider-wrapper {
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .item img {
+            width: 100%;
+            height: 350px !important;
+            object-fit: cover;
+        }
+        
+        body { background-color: #f4f4f9; }
+    </style>
+</head>
+<body>
+
+<div class="slider-wrapper">
+    <h2 class="text-center" style="margin-bottom: 20px;">Слайдер на Bootstrap</h2>
+    
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="image/1.png" alt="Фото 1">
+                <div class="carousel-caption">
+                    <h3>Перше фото</h3>
+                </div>
+            </div>
+            
+            <div class="item">
+                <img src="image/2.png" alt="Фото 2">
+                <div class="carousel-caption">
+                    <h3>друге фото</h3>
+                </div>
+            </div>
+            
+            <div class="item">
+                <img src="image/3.png" alt="Фото 3">
+                <div class="carousel-caption">
+                    <h3>Третє фото</h3>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="image/4.png" alt="Фото 4">
+                <div class="carousel-caption">
+                    <h3>Четверте фото</h3>
+                </div>
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        
+    </div>
+</div>
+
+</body>
+</html>

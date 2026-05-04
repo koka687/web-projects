@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Центрування за допомогою Flex</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f4f4f9; 
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+            height: 100vh;           
+        }
+
+        .center-box {
+            background-color: #4CAF50; 
+            padding: 40px 60px;        
+            border-radius: 15px;      
+            
+            color: white;
+            font-family: sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+            
+            transition: font-size 0.3s ease;
+        }
+
+        .center-box:hover {
+            font-size: 28px; 
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center-container">
+        <div class="center-box">Якийсь текст</div>
+    </div>
+
+</body>
+</html>

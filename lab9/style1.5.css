@@ -1,0 +1,25 @@
+.background-example {
+    width: 500px;
+    height: 300px;
+    background-image: url('rey-seven-_nm_mZ4Cs2I-unsplash.jpg');
+    background-size: contain; 
+    background-position: center;
+    border: 1px solid #000;
+}
+
+.background-gradient {
+background-image: url('rey-seven-_nm_mZ4Cs2I-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-position: right top;    /* Правий верхній кут */
+    background-attachment: scroll;    /* Ефект прокручування */
+    background-size: 200px;           /* Робимо його маленьким у куті */
+}
+
+/* Додаємо порожні блоки, щоб сторінку можна було гортати вниз */
+.spacer {
+    height: 500px;
+    border-bottom: 1px dashed #ccc;
+}
+
+
+

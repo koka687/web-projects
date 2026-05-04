@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 1</title>
+</head>
+<body>
+    <button onclick="toggleDescription()">Показати / Сховати опис</button>
+    <div id="productDescription" style="display:none; padding:10px; background:lightyellow; margin-top:10px;">
+        Це тестовий опис товару для першого завдання.
+    </div>
+<script>
+    function toggleDescription() {
+        let description = document.getElementById("productDescription");
+        
+        if (description.style.display === "none" || description.style.display === "") {
+            description.style.display = "block";
+            localStorage.setItem("descriptionState", "open"); // Зберігаємо стан
+            
+            let pos = 0;
+            let id = setInterval(function() {
+                if (pos >= 100) {
+                    clearInterval(id);
+                } else {
+                    pos += 2;
+                    description.style.marginLeft = pos + "px";
+                }
+            }, 5);
+        } else {
+            description.style.display = "none";
+            description.style.marginLeft = "0px";
+            localStorage.setItem("descriptionState", "closed"); // Зберігаємо стан
+        }
+    }
+
+    // Відновлення при завантаженні сторінки
+    window.onload = function() {
+        let description = document.getElementById("productDescription");
+        let state = localStorage.getItem("descriptionState");
+        
+        if (state === "open") {
+            description.style.display = "block";
+            description.style.marginLeft = "100px"; // Відновлюємо позицію
+        } else {
+            description.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

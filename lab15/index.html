@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Слайдер</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+    <style>
+        body { background-color: #f4f4f9; padding: 20px; }
+
+        .sl_ctr {
+            position: relative;
+            width: 100%;            
+            max-width: 600px;       
+            height: 350px;
+            overflow: hidden;       
+            margin: 0 auto;         
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .sldr {
+            position: relative;
+            width: 10000px; 
+            height: 100%;
+        }
+
+        .sldr img {
+            float: left;
+            max-width: 100%;
+            height: 350px;
+            object-fit: cover; 
+            display: block;
+        }
+
+        .prv_b, .nxt_b {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%); 
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            font-size: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .prv_b { left: 10px; }
+        .nxt_b { right: 10px; }
+        .prv_b::after { content: '❮'; } 
+        .nxt_b::after { content: '❯'; } 
+        .prv_b:hover, .nxt_b:hover { opacity: 1; background-color: rgba(0, 0, 0, 0.9); }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">Адаптивний jQuery Слайдер</h2>
+
+    <div class="sl_ctr">
+        <div class="sldr">
+            <img src="image/photo1.png" alt="Фото 1">
+            <img src="image/photo2.png" alt="Фото 2">
+            <img src="image/photo3.png" alt="Фото 3">
+            <img src="image/photo4.png" alt="Фото 4">
+            <img src="image/photo5.png" alt="Фото 5">
+        </div>
+        <div class="prv_b"></div>
+        <div class="nxt_b"></div>
+    </div>
+
+    <script>
+        $(function() {
+            var sldr = $('.sldr'),
+                slideCount = $('.sldr img').length,
+                prv_b = $('.prv_b'),
+                nxt_b = $('.nxt_b'),
+                sldrInterval = 3300, 
+                animateTime = 1000,  
+                course = 1,
+                margin = 0,
+                slideWidth = 0,
+                interval;
+
+            function updateSlideWidth() {
+                slideWidth = $('.sl_ctr').outerWidth();
+                $('.sldr img').css('width', slideWidth + 'px'); 
+                margin = -slideWidth;
+                sldr.css('margin-left', margin);
+            }
+
+            $('.sldr img:last').clone().prependTo('.sldr');
+            $('.sldr img').eq(1).clone().appendTo('.sldr');
+
+            updateSlideWidth();
+
+            $(window).resize(function() {
+                sldr.stop(true, true); 
+                updateSlideWidth();
+            });
+
+            function nxt_bSlide() {
+                interval = window.setInterval(animate, sldrInterval);
+            }
+
+            function animate() {
+                if (margin == -slideCount * slideWidth - slideWidth) {
+                    sldr.css({'marginLeft': -slideWidth});
+                    margin = -slideWidth * 2;
+                } else if (margin == 0 && course == -1) {
+                    sldr.css({'marginLeft': -slideWidth * slideCount});
+                    margin = -slideWidth * slideCount + slideWidth;
+                } else {
+                    margin = margin - slideWidth * course;
+                }
+                sldr.animate({'marginLeft': margin}, animateTime);
+            }
+
+            function sldrStop() {
+                window.clearInterval(interval);
+            }
+
+            prv_b.click(function() {
+                if (sldr.is(':animated')) { return false; }
+                var course2 = course;
+                course = -1;
+                animate();
+                course = course2;
+            });
+
+            nxt_b.click(function() {
+                if (sldr.is(':animated')) { return false; }
+                var course2 = course;
+                course = 1;
+                animate();
+                course = course2;
+            });
+
+            sldr.add(nxt_b).add(prv_b).hover(function() {
+                sldrStop();
+            }, nxt_bSlide);
+
+            nxt_bSlide();
+        });
+    </script>
+
+</body>
+</html>

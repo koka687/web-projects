@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Горизонтальне Flex-меню</title>
+    <style>
+        nav {
+            display: flex;
+            background-color: #333;
+            padding: 10px;
+            
+            justify-content: space-around; 
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            color: #ffda75; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="https://cssgradient.io/">Головна</a>
+        <a href="https://cssgradient.io/">Про нас</a>
+        <a href="https://cssgradient.io/">Послуги</a>
+        <a href="https://cssgradient.io/">Контакти</a>
+    </nav>
+
+</body>
+</html>

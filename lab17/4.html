@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>ECLIPSE | Streetwear</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0b0c; 
+            color: #ffffff;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            color: #ff0044; 
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(255, 0, 68, 0.6);
+            margin-bottom: 40px;
+        }
+        .faq-btn {
+            width: 100%;
+            background-color: #161618;
+            color: #fff;
+            border: 1px solid #222;
+            padding: 18px 20px;
+            font-size: 15px;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 6px;
+            margin-top: 15px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .faq-btn:hover {
+            border-color: #ff0044;
+            box-shadow: 0 0 12px rgba(255, 0, 68, 0.3);
+            background-color: #1a1a1c;
+        }
+        .faq-content {
+            display: none; 
+            padding: 15px 20px;
+            background-color: #121212;
+            border-left: 3px solid #ff0044;
+            margin-top: 5px;
+            color: #b3b3b3;
+            font-size: 14px;
+            line-height: 1.6;
+            border-radius: 0 6px 6px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>ECLIPSE APPAREL | FAQ</h2>
+
+    <button class="faq-btn" onclick="toggleBlock('info1', 'state_info1')">Оплата та Доставка</button>
+    <div id="info1" class="faq-content">
+        Ми відправляємо замовлення Новою Поштою по всій території України. Відправка здійснюється протягом 1-2 робочих днів після підтвердження. Оплата можлива при отриманні (накладений платіж) або на карту.
+    </div>
+
+    <button class="faq-btn" onclick="toggleBlock('info2', 'state_info2')">Як обрати розмір?</button>
+    <div id="info2" class="faq-content">
+        Усі наші речі мають крій оверсайз. Якщо ви хочете стандартну посадку — беріть на розмір менше. Детальна розмірна сітка з параметрами у сантиметрах знаходиться на сторінці кожного товару.
+    </div>
+
+    <button class="faq-btn" onclick="toggleBlock('info3', 'state_info3')">Повернення та Обмін</button>
+    <div id="info3" class="faq-content">
+        Ви можете повернути або обміняти річ протягом 14 днів з моменту отримання, якщо вона не була у використанні, зберегла товарний вигляд та всі оригінальні бірки.
+    </div>
+
+    <script>
+        function toggleBlock(blockId, storageKey) {
+            let el = document.getElementById(blockId);
+            
+            if (el.style.display === "none" || el.style.display === "") {
+                el.style.display = "block";
+                localStorage.setItem(storageKey, "open");
+                
+                let pos = 0;
+                let id = setInterval(function() {
+                    if (pos >= 15) {
+                        clearInterval(id);
+                    } else {
+                        pos += 2;
+                        el.style.marginLeft = pos + "px";
+                    }
+                }, 10);
+            } else {
+                el.style.display = "none";
+                el.style.marginLeft = "0px";
+                localStorage.setItem(storageKey, "closed");
+            }
+        }
+
+        window.onload = function() {
+            const blocks = [
+                { id: "info1", key: "state_info1" },
+                { id: "info2", key: "state_info2" },
+                { id: "info3", key: "state_info3" }
+            ];
+
+            blocks.forEach(item => {
+                let el = document.getElementById(item.id);
+                let state = localStorage.getItem(item.key);
+                
+                if (state === "open") {
+                    el.style.display = "block";
+                    el.style.marginLeft = "15px"; 
+                } else {
+                    el.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
