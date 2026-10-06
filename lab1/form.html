@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Запропонувати місто</title>
+    <style>
+        body { background-color: #12121a; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; }
+        header, footer { background-color: #1e1e2e; padding: 20px; text-align: center; border-bottom: 2px solid #8e2de2; }
+        footer { border-top: 2px solid #8e2de2; border-bottom: none; margin-top: 40px; }
+        h1, h2 { color: #b873f9; }
+        nav a { color: #ffffff; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        nav a:hover { color: #b873f9; }
+        main { padding: 20px; max-width: 600px; margin: 0 auto; }
+        form { background-color: #1e1e2e; padding: 20px; border-radius: 8px; border-left: 4px solid #8e2de2; }
+        label { display: block; margin-top: 15px; color: #b873f9; }
+        input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; background-color: #2a2a35; color: white; border: 1px solid #8e2de2; border-radius: 4px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 10px 20px; background-color: #8e2de2; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;}
+        button:hover { background-color: #6a1b9a; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Запропонувати місто</h1>
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="city-bucharest.html">Бухарест</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Форма зворотного зв'язку</h2>
+            <form action="#" method="get">
+                <label for="username">Ваше ім'я:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Ваш Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="city">Назва міста для рейтингу:</label>
+                <input type="text" id="city" name="city" required>
+
+                <label for="country">Оберіть частину світу:</label>
+                <select id="country" name="country">
+                    <option value="europe">Європа</option>
+                    <option value="asia">Азія</option>
+                    <option value="america">Америка</option>
+                </select>
+
+                <label for="reason">Чому варто відвідати це місто?</label>
+                <textarea id="reason" name="reason" rows="4" required></textarea>
+
+                <button type="submit">Надіслати пропозицію</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p><a href="index.html" style="color: #b873f9;">← Повернутися на головну</a></p>
+    </footer>
+</body>
+</html>
